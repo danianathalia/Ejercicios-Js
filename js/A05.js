@@ -1,39 +1,51 @@
 /*Dadas las edades y alturas de 5 alumnos, mostrar la edad y la estatura media,
 la cantidad de alumnos mayores de 18 años, y la cantidad de alumnos que miden más de 1.75.*/
-var edad = "";
-var estatura = "";
-var edadMedia = "";
-var alturaMedia = "";
-var sumaEdad = "";
-var sumaAltura = "";
-var contE = "";
-var contA = "";
+var arrAlumnos = new Array();
+arrAlumnos["Edad"] = new Array();
+arrAlumnos["Estatura"] = new Array();
 
-function alumnos() {
-  for(var i=0;i<=5;i++)
-   {
-       edad=document.getElementById("edad").value;
+function obtenerDatos (edad, estatura){
 
-       estatura=document.getElementById("altura").value;
+  var edad = parseInt(edad);
+  var estatura = parseInt(estatura);
 
-       if(edad>18)
-       {
-           contE++;
-           sumaEdad=sumaEdad+edad;
-           console.log(sumaEdad);
-       }
-       if(estatura>(1.75))
-       {
-           contA++;
-           sumaAltura=sumaAltura+altura;
-           console.log(sumaAltura);
-       }
+  arrAlumnos["Edad"].push(edad);
+  arrAlumnos["Estatura"].push(estatura);
 
-   }
-   edadMedia=sumaEdad/contE;
-   console.log(edadMedia);
-   alturaMedia=sumaAltura/contA;
-   console.log(alturaMedia);
+  return "<tr><td>"+edad+"</td><td>"+estatura+"</td></tr>";
 
-   return {"Edad Media: ":edadMedia, "Altura Media: ":alturaMedia, "Alumnos mayores de 18: ":sumaEdad, "Alumnos que miden mas de 1.75: ":sumaAltura};
+}
+
+function calcularDatos() {
+
+  var EdadMedia = 0;
+  var EstaturaMedia = 0;
+  var Mayores = 0; //Mayores de 18
+  var Altos = 0; //Mayores de 1.75
+
+  for (var i = 0; i < 5; i++) {
+    EdadMedia += arrAlumnos["Edad"][i];
+    EstaturaMedia += arrAlumnos["Estatura"][i];
+
+    if(arrAlumnos["Edad"][i] >= 18){
+      Mayores++;
+    }
+
+    if(arrAlumnos["Estatura"][i] >= 175){
+      Altos++;
+    }
+
   }
+
+  EdadMedia = EdadMedia / 5;
+  EstaturaMedia = EstaturaMedia / 5;
+
+  arrAlumnos["Estatura"]=new Array();
+  arrAlumnos["Edad"]=new Array();
+
+  return "<strong>Edad Media: </strong>"+EdadMedia+
+                  ".</br>"+"<strong>Estatura Media: </strong>"+EstaturaMedia+
+                  ".</br>"+"<strong>Mayores de 18: </strong>"+Mayores+".</br>"+
+                  "<strong>Mayores de 175 cm: </strong>"+Altos+".</br>";
+
+}

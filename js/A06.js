@@ -1,15 +1,13 @@
 /*Pedir un número entre 0 y 9.999, decir si es capicúa*/
-function capicua() {
-numero = document.form.text.value;
-reves = 0;
-aux=n;
-while(n>0){
-  res=mod(n,10);
-  reves = reves * 10 + res;
-  n = fix(n/10);
-}
-if (true) {
+function verificarCapicua(numero){
 
-}
-centena
+	var numInvertido = numero.toString();
+	numInvertido = numInvertido.split('');
+	numInvertido =  numInvertido.reverse().join('');
+
+	if (numero == numInvertido) {
+		return "El número " + numero + " es capicúa";
+	}else{
+		return "El número " + numero + " no es capicúa";
+	}
 }

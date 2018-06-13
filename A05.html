@@ -3,43 +3,48 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="js/jquery-3.3.1.js"></script>
   </head>
   <body>
 
-    <div class="">
-      <h2>Ingrese la edad y la altura de los 5 Estudiantes</h2>
-      <form class="" action="index.html" method="post">
+    <div>
+        <h2 class="title1">Ejercicio 05</h2>
+        <h4>Ingreso de alumnos :</h4>
+          <form>
+            <fieldset>
+              <legend>Datos del Alumno:</legend>
+                <div class="form-group">
+                  <label for="edad">Edad</label></br>
+                  <input type="number" id="edad" name="edad" value=""></br></br>
+                  <label for="estatura">Estatura</label></br>
+                  <input type="number" id="estatura" name="estatura" value=""></br>
+                </div>
+            </fieldset>
+            <button type="reset" class="btn btn-default" id="btnCalcular">Agregar</button>
+          </form>
+          <h3 class="panel-title">Resultado</h3>
+            <div id="divResult">
+              <table id="filas" border="1">
+                <tr>
+                  <th>Edad</th>
+                  <th>Altura</th>
+                </tr>
+              </table>
+            </div>
 
-        <label for="edad">Estudiante Nº 1</label>
-        <input type="text" name="edad" id="edad" placeholder="Edad" size="3" maxlength="3" required>
-        <input type="text" name="" id="altura" placeholder="Altura" size="3" maxlength="5" required>
-        <br><br>
+      <script src="js/A05.js" charset="utf-8"></script>
 
-        <label for="">Estudiante Nº 2</label>
-        <input type="text" name="" id="edad" placeholder="Edad" size="3" maxlength="3" required>
-        <input type="text" name="" id="altura" placeholder="Altura" size="3" maxlength="5" required>
-        <br><br>
-
-        <label for="">Estudiante Nº 3</label>
-        <input type="text" name="" id="edad" placeholder="Edad" size="3" maxlength="3" required>
-        <input type="text" name="" id="altura" placeholder="Altura" size="3" maxlength="5" required>
-        <br><br>
-
-        <label for="">Estudiante Nº 4</label>
-        <input type="text" name="" id="edad" placeholder="Edad" size="3" maxlength="3" required>
-        <input type="text" name="" id="altura" placeholder="Altura" size="3" maxlength="5" required>
-        <br><br>
-
-        <label for="">Estudiante Nº 5</label>
-        <input type="text" name="" id="edad" placeholder="Edad" size="3" maxlength="3" required>
-        <input type="text" name="" id="altura" placeholder="Altura" size="3" maxlength="5" required>
-        <br><br>
-      </form>
-      <div class="divResult">
-        <input type="button" name="" onclick="alumnos()" value="Calcular" >
-        <script type="text/javascript" src="js/A05.js"></script>
-      </div>
-
+      <script>
+      $("#btnCalcular").click(function() {
+        if (arrAlumnos["Edad"].length != 5){
+          var strFila = obtenerDatos($("#edad").val(), $("#estatura").val());
+          $("#filas").append(strFila);
+        }else{
+          $("#divResult").html(calcularDatos());
+        }
+        console.log(arrAlumnos);
+      });
+      </script>
     </div>
 
   </body>
