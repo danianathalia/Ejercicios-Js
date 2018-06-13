@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h4>Ingrese los datos :</h4>
+    <div>
+      <form>
+          <label for="radio">Radio</label></br>
+          <input type="text" id="radio" name="radio" value=""></br>
+          <label for="tipo">Tipo</label></br>
+          <select id="tipo" class="tipo" name="tipo"></br>
+            <option id="Circulo" value="Circulo">Circulo</option>
+            <option id="Circunferencia" value="Circunferencia">Circunferencia</option>
+          </select>
+          <button type="button" class="btn btn-default" onclick="btnSend();">Calcular</button>
+      </form>
+    </div>
+    <h3 class="panel-title">Resultado</h3>
+    <div id="divResult"></div>
+
+    <script src="js/A03.js" charset="utf-8"></script>
+
+    <script>
+
+    function btnSend(){
+
+      var TipoCalculo = "";
+      var radio = document.getElementById("radio").value;
+      var select = document.getElementById("tipo");
+      var tipo = select.options[select.selectedIndex].value;
+      var result = calcular(radio, tipo);
+
+      if (tipo == "Circulo"){
+        TipoCalculo = "El Area";
+      }else{
+        TipoCalculo = "La Longitud";
+      }
+
+    document.getElementById("divResult").innerHTML = (TipoCalculo+" del "+tipo+" es: "+result);
+    }
+
+    </script>
+
+  </body>
+</html>

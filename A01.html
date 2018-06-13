@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h4>Ingrese los datos :</h4>
+    <div>
+    <form>
+        <label for="varA">Variable A</label>
+        <input type="number" class="form-control" id="varA" name="varA" placeholder="2" required>
+        <br>
+
+        <label for="varB">Variable B</label>
+        <input type="number" class="form-control" id="varB" name="varB" placeholder="2" required>
+        <br>
+
+        <label for="varC">Variable C</label>
+        <input type="number" class="form-control" id="varC" name="varB" placeholder="2" required>
+        <br>
+
+      <button type="button" class="btn btn-default" onclick="btnSend();">Calcular</button>
+    </form>
+    <div id="divResult"></div>
+    </div>
+
+    <script src="js/A01.js" charset="utf-8"></script>
+
+    <script>
+
+      function btnSend(){
+          var a = document.getElementById("varA").value;
+          var b = document.getElementById("varB").value;
+          var c = document.getElementById("varC").value;
+
+          var result = equacionSegundo(a, b, c);
+
+          document.getElementById("divResult").innerHTML = ("X1: "+result.x1+" X2: "+result.x2);
+      }
+
+    </script>
+
+  </body>
+</html>

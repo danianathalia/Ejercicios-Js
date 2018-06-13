@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+			<div>
+				<h4>Ingrese los datos :</h4>
+				<form>
+          <label for="n_dias">Dias</label>
+          <input type="number" class="form-control" id="n_dias" name="n_dias" placeholder="800" required>
+          <button type="button" class="btn btn-default" onclick="btnSend();">Calcular</button>
+        </form>
+			</div>
+      <h3 class="panel-title">Resultado</h3>
+      <div id="divResult"></div>
+
+  <script src="js/A02.js" charset="utf-8"></script>
+
+  <script>
+    function btnSend(){
+        var n_dias = document.getElementById("n_dias").value;
+
+        var result = velocidadLuz(n_dias);
+
+        document.getElementById("divResult").innerHTML = ("La cantidad de kilometros que recorre la luz en : "+n_dias+" dias es de: "+result);
+    }
+  </script>
+
+  </body>
+</html>
