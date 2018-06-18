@@ -3,8 +3,53 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="js/jquery-3.3.1.js"></script>
   </head>
   <body>
+
+  <div class="form-body">
+   <form>
+       <label for="codigo">Código del Producto:</label>
+       <div class="form-group">
+           <input type="number" class="form-control" id="codigo" name="codigo" placeholder="000" value="" required>
+       </div>
+       <label for="codigo">Litros:</label>
+       <div class="form-group">
+           <input type="number" class="form-control" id="litros" name="litros" placeholder="000" value="" required>
+       </div>
+       <br>
+       <label for="codigo">Precio por litro:</label>
+       <div class="form-group">
+           <input type="number" class="form-control" id="precio" name="precio" placeholder="000" value="" required>
+       </div>
+       <br>
+       <button type="button" class="btn btn-default" id="btnCalcular">Calcular</button>
+   </form>
+   <h3 class="panel-title">Resultado:</h3>
+     <div>
+      <table id="filas" border="1">
+        <tr>
+          <th>Código de Producto</th>
+          <th>Litros</th>
+          <th>Precio por Litro</th>
+        </tr>
+      </table><br>
+    </div>
+    <div id="divResult"></div>
+    <script src="js/A13.js" charset="utf-8"></script>
+    <script>
+
+        $("#btnCalcular").click(function () {
+            if (arrFacturas["Codigo"].length != 5) {
+                var strFila = obtenerDatos($("#codigo").val(), $("#litros").val(), $("#precio").val());
+                $("#filas").append(strFila);
+            } else {
+                $("#divResult").html(calcularDatos());
+            }
+        });
+
+    </script>
+ </div>
 
   </body>
 </html>

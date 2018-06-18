@@ -3,8 +3,51 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="js/jquery-3.3.1.js"></script>
   </head>
   <body>
+    <div>
+        <h4>Ingreso de Calificaciones :</h4>
+          <form>
+            <div class="form-group">
+              <label for="edad">Materia</label>
+              <br>
+              <input type="text" class="form-control" id="materia" name="materia" placeholder="Ej: Calculo" value="" required>
+              </div>
+              <div class="form-group">
+              <label for="edad">Nota 1...10</label>
+              <br>
+              <input type="number" class="form-control" id="nota" name="nota" placeholder="0000" value="" required min="1" max="10">
+              </div>
+              <br>
+              <button type="button" class="btn btn-default" id="btnIngresar">Ingresar Materia(s)</button>
+              <br>
+              <br>
+              <button type="button" class="btn btn-default" id="btnCalcular">Nota Final</button>
+          </form>
+          <h3 class="panel-title">Resultado</h3>
+          <div id="divResult">
+            <table id="filas" border="1">
+              <tr>
+                <th>Materia</th>
+                <th>Nota</th>
+              </tr>
+            </table>
+         </div>
 
+      <script src="js/A11.js" charset="utf-8"></script>
+
+      <script>
+        $("#btnIngresar").click(function () {
+        var strFila = obtenerDatos($("#materia").val(), $("#nota").val());
+        $("#filas").append(strFila);
+        });
+        $("#btnCalcular").click(function () {
+        $("#divResult").html(calcularNotas());
+        });
+    </script>
+
+
+    </div>
   </body>
 </html>

@@ -7,17 +7,3 @@ function rev() {
 	voltear+=text.substring(count,count-1);
 	document.form.text.value=voltear;
 }
-
-
-function invertir(){
-	var numero = document.getElementById("valor").value;
-
-		while( parseInt(numero / 10) != 0 ){
-	    document.getElementById("resultado").innerHTML += (numero % 10);
-	    numero = parseInt(numero / 10);
-		    if(parseInt(numero/10) == 0){
-		        document.getElementById("resultado").innerHTML += (numero % 10);
-		    }
-		}
-
-}

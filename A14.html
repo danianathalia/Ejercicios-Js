@@ -3,8 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="js/jquery-3.3.1.js"></script>
   </head>
   <body>
+
+    <h4>Ingresar Numero:</h4>
+    <form name="form">
+      <label for="numero">Numero</label></br><input type="number" id="numero" name="numero" value=""></br></br>
+      <button type="button" class="btn btn-default" id="btnCalcular">Calcular</button>
+    </form>
+    <h3 class="panel-title">Resultado</h3>
+    <div id="divResult" name="result"></div>
+
+    <script src="js/A14.js" charset="utf-8"></script>
+
+    <script>
+		$("#btnCalcular").click(function() {
+    $("#divResult").append(Leer);
+		});
+  	</script>
 
   </body>
 </html>
